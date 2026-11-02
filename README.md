@@ -23,7 +23,7 @@ npm run preview  # üretim çıktısını yerelde önizle
 | Hakkımda metni ve portre | `index.html` → `#hakkimda` (köşeli parantez içindeki yer tutucu cümleleri değiştirin) |
 | Tiyatro projeleri | `index.html` → `#tiyatro` içindeki her `<article class="work">` |
 | Eğitim başlıkları | `index.html` → `#egitim` içindeki `.course` öğeleri |
-| Instagram videoları | `index.html` → `#videolar` içindeki her `.reel`: `data-src="/videos/reel-1.mp4"`, isteğe bağlı `data-poster`, `href` = gönderi linki |
+| Instagram videoları | `index.html` → `#videolar` içindeki her `.reel`: `data-src="videos/reel-1.mp4"`, isteğe bağlı `data-poster` (yollar başında `/` olmadan yazılmalı), `href` = gönderi linki |
 
 Düzenlenecek yerler HTML içinde `<!-- DÜZENLE -->` yorumlarıyla işaretlidir.
 
@@ -31,7 +31,7 @@ Düzenlenecek yerler HTML içinde `<!-- DÜZENLE -->` yorumlarıyla işaretlidir
 
 - Hero videosu: `public/videos/cihan-albayrak.mp4` (H.264, faststart, sessiz, ~1 MB).
   Video yüklenemezse veya otomatik oynatılamazsa `public/images/hero-poster.jpg` gösterilir.
-- Fotoğrafları `public/images/` içine koyun (tercihen 1600px genişlikte WebP/JPG) ve ilgili `src` değerlerini değiştirin.
+- Fotoğrafları `public/images/` içine koyun (tercihen 1600px genişlikte WebP/JPG) ve ilgili `src` değerlerini değiştirin (ör. `images/portre.jpg`).
 - Yeni bir videoyu web için sıkıştırmak:
   ```bash
   ffmpeg -i girdi.mp4 -an -c:v libx264 -preset slow -crf 28 -pix_fmt yuv420p -movflags +faststart public/videos/cihan-albayrak.mp4
@@ -44,3 +44,9 @@ Düzenlenecek yerler HTML içinde `<!-- DÜZENLE -->` yorumlarıyla işaretlidir
 - Kaydırmada kelime kelime açılan başlıklar, perde gibi açılan fotoğraflar, parallax ve hafif zoom
 - Kaydırırken gizlenen/geri gelen menü, aktif bölüm vurgusu, mobilde tam ekran hamburger menü
 - `prefers-reduced-motion` desteği, klavye erişimi, "İçeriğe geç" bağlantısı, SEO meta ve schema.org verisi
+
+## Yayın
+
+Site GitHub Pages üzerinde yayında: **https://nfcova.github.io/cihanalbayrak/**
+
+Varsayılan dala yapılan her push'ta `.github/workflows/deploy.yml` siteyi derleyip `gh-pages` dalına yayınlar; birkaç dakika içinde canlıya yansır.
